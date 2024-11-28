@@ -2,104 +2,140 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <mete name="viewport" content="width=device-width, initial-scale=1.0"
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Dazai Apparels</title>
     <style>
-        body{
-            width: 100vh;
-            height: 100%;
+        /* Body Styles */
+        body {
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            margin: auto;
-            text-align: center;
-            background-image: url(dazai.jpg);
             justify-content: center;
+            align-items: center;
+            margin: 0; /* Remove default margin */
+            background-image: url('dazai_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center; /* Center form content */
         }
-        .login-container{
-            height: 630px;
-            width: 400px;
+
+        /* Layer for Semi-transparent Background */
+        .login-layer {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            z-index: 1; /* Behind login-container */
+        }
+
+        /* Login Container */
+        .login-container {
+            position: relative; /* Enable z-index */
+            z-index: 2; /* Above the background layer */
+            width: 90%;
+            max-width: 400px; /* Restrict max width */
+            height: auto; /* Adjust height to content */
+            padding: 30px;
+            margin: 20px;
             box-sizing: border-box;
             border: 1px solid #000;
-            box-shadow: 0px 20px 60px rgba(0, 0, 0, 8);
-            background-color: #151716;
             border-radius: 10px;
-            margin: 20px;
-            justify-content: center;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.8);
+            background-color: rgba(21, 23, 22, 0.8); /* Transparent background */
+        }
 
-        }
-        .login-container h2{
+        /* Form Text and Headings */
+        .login-container h1,
+        .login-container h2 {
             font-family: Arial, Helvetica, sans-serif;
             color: white;
+            margin: 10px 0;
         }
-        .login-container h1{
-            font-family: Arial, Helvetica, sans-serif;
+
+        .login-container form {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin-top: 20px;
+        }
+
+        .login-container input {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             color: white;
-        }
-        .login-container form{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 50px;
-            font-size: x-large;
-        }
-        .login-container input{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: white;
+            background-color: #151716;
+            border: 1px solid #000;
             border-radius: 40px;
             font-size: medium;
-            border: 1px solid #000;
-            box-sizing: border-box;
-            box-shadow: 0pc 4px 14px rgba(0, 0, 0, 0.8);
-            background-color: #151716;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.8);
             text-align: center;
             width: 100%;
-            padding: 20px;
-            margin: 5px;
-        }
-        .login-container button{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: black;
+            padding: 15px;
+            margin: 10px 0;
             box-sizing: border-box;
-            text-align: center;
-            box-shadow: 0p 4px 18px rgba(0, 0, 0, 0.8);
-            border-radius: 40px;
-            border: 1px solid #000;
+        }
+
+        .login-container button {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            color: black;
             background-color: white;
+            border: 1px solid #000;
+            border-radius: 40px;
+            box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.8);
             width: 50%;
-            margin: 5px;
             padding: 10px;
-        }
-        .login-container button:hover{
-            opacity: 0.8;
-            transform: scale(1.1);
+            margin: 10px 0;
             transition: transform 0.2s, opacity 0.2s;
         }
-        .login-container input:hover{
+
+        .login-container button:hover {
             opacity: 0.8;
             transform: scale(1.1);
-            transition: transform 0.2s, opacity 0.2s;
         }
-        .login-container h5{
-            color: white;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        .login-container input:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
         }
-        .login-container h6{
+
+        .login-container .or {
             color: white;
+            font-size: large;
+            margin: 10px 0;
+        }
+
+        .login-container h5 {
+            color: white;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        .login-container a {
+            color: #1E90FF; /* Highlight links in blue */
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
+    <!-- Background Layer -->
+    <div class="login-layer"></div>
+
+    <!-- Login Form Container -->
     <div class="login-container">
-            <h2>Welcome To</h2>
-            <h1>Dazai Apparels</h1>
-            <form>
-                <input type="username" id="username" name="username" placeholder="Username" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <button type="submit">Sign In</button><br>
-                <h6>OR</h6>
-                <button type="submit">Login as a Guest</button>
-            </form>
-            <a href="#">Forget password?</a><br>
-            <h5>New to Dazai? <a href="#">Sign up now</a>
+        <h2>Welcome To</h2>
+        <h1>Dazai Apparels</h1>
+        <form>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign In</button><br>
+            <div class="or">or</div>
+            <button type="button">Login as a Guest</button>
+        </form>
+        <a href="#">Forget password?</a><br>
+        <h5>New to Dazai? <a href="#">Sign up now</a></h5>
     </div>
-    
 </body>
 </html>
