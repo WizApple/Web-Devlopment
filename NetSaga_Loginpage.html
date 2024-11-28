@@ -2,99 +2,167 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <mete name="viewport" content="width=device-width, initial-scale=1.0"
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetSaga Login</title>
     <style>
-        body{
-            width: 100vh;
-            height: 100%;
+        /* Body Styling */
+        body {
+            width: 100%;
+            height: 100vh;
             display: flex;
-            margin: auto;
-            text-align: center;
-            background-image: url(background.jpg);
             justify-content: center;
+            align-items: center;
+            margin: 0;
+            text-align: center;
+            background-image: url('netsaga_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: black; /* Fallback color */
         }
-        .login-container{
-            height: 550px;
-            width: 400px;
+
+        /* Overlay Layer */
+        .login-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            z-index: 1;
+        }
+
+        /* Login Container */
+        .login-container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 400px;
+            min-height: 550px;
             box-sizing: border-box;
             border: 1px solid #000;
-            box-shadow: 0px 20px 60px rgba(0, 0, 0, 8);
-            background-color: #151716;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.8);
+            background-color: rgba(21, 23, 22, 0.8); /* Transparent background */
             border-radius: 10px;
-            margin: 60px;
+            padding: 30px;
+            display: flex;
             justify-content: center;
+            align-items: center;
+        }
 
-        }
-        .login-container h2{
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-        }
-        .login-container h1{
+        /* Headings */
+        .login-container h1 {
             font-family: Arial, Helvetica, sans-serif;
             color: #007BFF;
+            margin: 10px 0;
         }
-        .login-container form{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 50px;
-            font-size: x-large;
-        }
-        .login-container input{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        .login-container h2 {
+            font-family: Arial, Helvetica, sans-serif;
             color: white;
+            margin: 5px 0;
+        }
+
+        /* Form Styling */
+        .login-container form {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .login-container input {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            color: white;
+            background-color: #151716;
+            border: 1px solid #000;
             border-radius: 40px;
             font-size: medium;
-            border: 1px solid #000;
-            box-sizing: border-box;
-            box-shadow: 0pc 4px 14px rgba(0, 0, 0, 0.8);
-            background-color: #151716;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.8);
             text-align: center;
             width: 100%;
-            padding: 20px;
-            margin: 5px;
-        }
-        .login-container button{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: white;
+            padding: 15px;
+            margin: 10px 0;
             box-sizing: border-box;
-            text-align: center;
-            box-shadow: 0p 4px 18px rgba(0, 0, 0, 0.8);
-            border-radius: 40px;
-            border: 1px solid #000;
-            background-color: #007BFF;
-            width: 50%;
-            margin: 10px;
-            padding: 10px;
         }
-        .login-container button:hover{
-            opacity: 0.8;
-            transform: scale(1.1);
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .login-container input:hover{
-            opacity: 0.8;
-            transform: scale(1.1);
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .login-container h5{
+
+        /* Button Styling */
+        .login-container button {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             color: white;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #007BFF;
+            border: 1px solid #000;
+            border-radius: 40px;
+            box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.8);
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .login-container button:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        /* Hover Effect for Input */
+        .login-container input:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        /* Additional Info */
+        .login-container h5 {
+            color: white;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        /* Links */
+        .login-container a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .login-container input,
+            .login-container button {
+                font-size: small;
+                padding: 10px;
+            }
+
+            .login-container button {
+                width: 60%;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="login-container">
-            <h2>Sign In</h2>
-            <h1>NetSaga</h1>
-            <form>
-                <input type="username" id="username" name="username" placeholder="Username" required><br>
-                <input type="password" id="password" name="password" placeholder="Password" required><br>
-                <button type="submit">Sign In</button><br>
-            </form>
-            <a href="https://www.netflix.com/login">Forget password?</a><br>
-            <h5>New to NetSaga? <a href="https://www.netflix.com/login">Sign up now</a>
-    </div>
+    <!-- Background Overlay -->
+    <div class="login-layer"></div>
     
+    <!-- Login Container -->
+    <div class="login-container">
+        <h2>Sign In</h2>
+        <h1>NetSaga</h1>
+        <form role="form" name="loginForm">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <a href="https://www.netflix.com/login" title="Recover your password">Forgot Password?</a>
+        <h5>New to NetSaga? <a href="https://www.netflix.com/login" title="Sign up for an account">Sign up now</a></h5>
+    </div>
 </body>
 </html>
