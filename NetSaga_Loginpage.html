@@ -14,7 +14,7 @@
             align-items: center;
             margin: 0;
             text-align: center;
-            background-image: url('netsaga_bg.jpg');
+            background-image: url('netsaga_bg.jpg'); /* Ensure this file exists in the directory */
             background-size: cover;
             background-position: center;
             background-color: black; /* Fallback color */
@@ -45,6 +45,7 @@
             border-radius: 10px;
             padding: 30px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -72,7 +73,7 @@
         .login-container input {
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             color: white;
-            background-color: #151716;
+            background-color: #2b2d2c; /* Improved contrast */
             border: 1px solid #000;
             border-radius: 40px;
             font-size: medium;
@@ -82,6 +83,7 @@
             padding: 15px;
             margin: 10px 0;
             box-sizing: border-box;
+            transition: opacity 0.2s, transform 0.2s;
         }
 
         /* Button Styling */
@@ -92,7 +94,7 @@
             border: 1px solid #000;
             border-radius: 40px;
             box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.8);
-            width: 50%;
+            width: 60%; /* Adjusted for better responsiveness */
             padding: 10px;
             margin: 10px 0;
             cursor: pointer;
@@ -142,7 +144,7 @@
             }
 
             .login-container button {
-                width: 60%;
+                width: 70%; /* Improved for small screens */
             }
         }
     </style>
@@ -157,8 +159,8 @@
         <h2>Sign In</h2>
         <h1>NetSaga</h1>
         <form role="form" name="loginForm">
-            <input type="text" id="username" name="username" placeholder="Username" required>
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="text" id="username" name="username" placeholder="Username" required aria-label="Username">
+            <input type="password" id="password" name="password" placeholder="Password" required aria-label="Password">
             <button type="submit">Sign In</button>
         </form>
         <a href="https://www.netflix.com/login" title="Recover your password">Forgot Password?</a>
