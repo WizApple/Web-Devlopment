@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <style>
+
+        .main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            background-image: url(dazai_bg.jpg);
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .background-layer {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.8);
+            border: 1px solid #000;
+            border-radius: 20px;
+            position: absolute;
+        }
+
+        .left {
+            top: 20%;
+            left:10%;
+            background-color: rgba(21, 23, 22, 0.8);
+        }
+
+        .middle {
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(21, 23, 22, 0.8);
+        }
+
+        .right {
+            top: 20%;
+            right: 10%;
+            background-color: rgba(21, 23, 22, 0.8);
+        }
+
+        .background-layer img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="background-layer">
+        <div class="box left"><img src="dazailogo_white.png"></div>
+        <div class="box middle"><img src="dazailogo_white.png"></div>
+        <div class="box right"><img src="dazailogo_white.png"></div>
+    </div>
+</div>
+</body>
+</html>
